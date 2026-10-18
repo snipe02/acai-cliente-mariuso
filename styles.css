@@ -1,0 +1,108 @@
+/* Animações de entrada */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Efeito de vidro */
+.glass-nav {
+  background: rgba(74, 26, 92, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Gradiente de texto */
+.text-gradient {
+  background: linear-gradient(135deg, #4a1a5c 0%, #e8506b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Evita zoom em inputs no iOS */
+input,
+select,
+textarea,
+button {
+  font-size: 16px;
+}
+
+/* Scrollbar discreta nos painéis */
+.nice-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.nice-scroll::-webkit-scrollbar-thumb {
+  background: rgba(74, 26, 92, 0.2);
+  border-radius: 99px;
+}
+
+/* "Shake" quando atinge o limite */
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-4px);
+  }
+  75% {
+    transform: translateX(4px);
+  }
+}
+.shake {
+  animation: shake 0.3s ease;
+}
+
+/* Safe area (iPhone com notch) */
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Cards do cardápio: 3 colunas no celular e no computador */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+@media (min-width: 640px) {
+  .menu-grid {
+    gap: 1.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .menu-grid {
+    gap: 2rem;
+  }
+}
+
+/* Hero: 2 colunas (texto + imagem) sempre */
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: center;
+}
+@media (min-width: 640px) {
+  .hero-grid {
+    gap: 2rem;
+  }
+}
+@media (min-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+  }
+}
