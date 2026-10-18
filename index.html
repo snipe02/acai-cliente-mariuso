@@ -10,26 +10,6 @@
     <title>Monte Seu Açaí | Oficina do Lanche</title>
     <link rel="icon" type="image/png" href="foto1.jpeg" />
 
-    <!-- ===== SEGURANÇA: Meta tags ===== -->
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="
-        default-src 'self';
-        script-src 'self' 'unsafe-inline' 'unsafe-eval'
-          https://cdn.tailwindcss.com https://unpkg.com;
-        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-        font-src 'self' https://fonts.gstatic.com data:;
-        img-src 'self' data: https:;
-        connect-src 'self' https://cdn.tailwindcss.com https://unpkg.com;
-        object-src 'none';
-        base-uri 'self';
-        frame-ancestors 'none';
-      "
-    />
-    <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <meta name="format-detection" content="telephone=no,email=no,address=no" />
-    <!-- ===== FIM SEGURANÇA ===== -->
-
     <!-- Tailwind CSS (CDN) + configuração -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="config.js"></script>
@@ -47,37 +27,6 @@
 
     <!-- Estilos personalizados -->
     <link rel="stylesheet" href="styles.css" />
-
-    <!-- ===== SEGURANÇA: Bloqueio de cópia/seleção ===== -->
-    <style>
-      /* Impede arrastar imagens */
-      img {
-        -webkit-user-drag: none;
-        -khtml-user-drag: none;
-        -moz-user-drag: none;
-        -o-user-drag: none;
-        user-drag: none;
-      }
-
-      /* Impede seleção de texto em toda a página */
-      body {
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      /* Permite seleção em campos de input/textarea */
-      input,
-      textarea,
-      [contenteditable="true"] {
-        -webkit-user-select: text;
-        user-select: text;
-      }
-    </style>
-    <!-- ===== FIM SEGURANÇA ===== -->
   </head>
 
   <body
@@ -887,87 +836,6 @@
         </div>
       </aside>
     </div>
-
-    <!-- ===== SEGURANÇA: Anti-DevTools (cosmético) ===== -->
-    <script>
-      (function () {
-        "use strict";
-
-        // 1) Bloqueia clique direito
-        document.addEventListener(
-          "contextmenu",
-          function (e) {
-            e.preventDefault();
-            return false;
-          },
-          { capture: true },
-        );
-
-        // 2) Bloqueia atalhos do DevTools / view-source / salvar
-        document.addEventListener(
-          "keydown",
-          function (e) {
-            var k = (e.key || "").toUpperCase();
-            var isMac = e.metaKey;
-
-            // F12
-            if (e.key === "F12" || e.keyCode === 123) {
-              e.preventDefault();
-              return false;
-            }
-            // Ctrl+Shift+I / J / C / K
-            if (e.ctrlKey && e.shiftKey && ["I", "J", "C", "K"].includes(k)) {
-              e.preventDefault();
-              return false;
-            }
-            // Ctrl+U (ver código) e Ctrl+S (salvar)
-            if (e.ctrlKey && (k === "U" || k === "S")) {
-              e.preventDefault();
-              return false;
-            }
-            // Cmd+Option+I / J / C / U (Mac)
-            if (isMac && e.altKey && ["I", "J", "C", "U"].includes(k)) {
-              e.preventDefault();
-              return false;
-            }
-            // Cmd+U / Cmd+S (Mac)
-            if (isMac && (k === "U" || k === "S")) {
-              e.preventDefault();
-              return false;
-            }
-          },
-          { capture: true },
-        );
-
-        // 3) Bloqueia arrastar imagens (reforço do CSS)
-        document.addEventListener(
-          "dragstart",
-          function (e) {
-            if (e.target && e.target.tagName === "IMG") {
-              e.preventDefault();
-            }
-          },
-          { capture: true },
-        );
-
-        // 4) Bloqueia "arrastar para fora" (drop)
-        document.addEventListener(
-          "dragover",
-          function (e) {
-            e.preventDefault();
-          },
-          { capture: true },
-        );
-        document.addEventListener(
-          "drop",
-          function (e) {
-            e.preventDefault();
-          },
-          { capture: true },
-        );
-      })();
-    </script>
-    <!-- ===== FIM SEGURANÇA ===== -->
 
     <!-- ===== JAVASCRIPT (ordem importa) ===== -->
     <script src="script.js"></script>
