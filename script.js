@@ -2,7 +2,7 @@
    CONFIGURAÇÃO
    WhatsApp da loja: DDI + DDD + número (somente dígitos)
 ========================================================= */
-const WHATSAPP_NUMBER = "5586995186802";
+const WHATSAPP_NUMBER = "558695221650";
 const INSTAGRAM_URL = "https://instagram.com/oficinadolanche_projeto";
 const DEFAULT_PRODUCT_ID = "c400";
 
